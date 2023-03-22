@@ -2,11 +2,6 @@
 
 body {
   width: 100%;
-  min-height: 400vh;
-  /* background-image: linear-gradient(#bbd6b8, #dbe4c6); */
-  /*   background-image: linear-gradient(#87a2fb, #88a2fb); */
-  /*   background-image: linear-gradient(#ede4e0, #fff8ea); */
-  /* 87a2fb */
   background-image: linear-gradient(#ede4e0, #fff8ea);
   font-family: 'Source Sans Pro', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;

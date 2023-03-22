@@ -4,6 +4,7 @@
     <v-parallax class="Parallax" :src="bg3" min-height="400vh">
       <HeaderBar :isSmallScreen="isSmallScreen" :shdShowHeader="shdShowHeader"></HeaderBar>
 
+      <!-- start of section -->
       <LandingSection class="LandingSection" />
       <AboutSection class="AboutSection" />
       <ExperienceSection class="ExperienceSection" :isSmallScreen="isSmallScreen" />
@@ -17,6 +18,8 @@
       <BaseTransit name="horizontalSlide">
         <FooterBar v-if="isLoaded" />
       </BaseTransit>
+
+      <!-- copyRight -->
       <div class="Copyright">
         {{ getCopyRight() }}
       </div>

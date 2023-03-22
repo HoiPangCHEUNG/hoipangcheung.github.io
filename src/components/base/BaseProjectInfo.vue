@@ -36,7 +36,6 @@ import { BaseProjectInfoProps } from '../../models/props/BaseProjectInfoProps'
 import BaseButton from './BaseButton.vue'
 
 const props = defineProps<BaseProjectInfoProps>()
-console.log(props)
 </script>
 
 <style scoped>

@@ -4,22 +4,22 @@
     <v-parallax class="Parallax" :src="bg3" min-height="400vh">
       <HeaderBar :isSmallScreen="isSmallScreen" :shdShowHeader="shdShowHeader"></HeaderBar>
 
-      <!-- start of sections -->
-      <BaseTransit>
-        <LandingSection v-if="isLoaded" ref="home" />
-      </BaseTransit>
-      <AboutSection ref="about" />
-      <ExperienceSection ref="experience" :isSmallScreen="isSmallScreen" />
-      <PortfolioSection ref="portfolio" :isMediumScreen="isMediumScreen" />
+      <!-- start of section -->
+      <LandingSection class="LandingSection" />
+      <AboutSection class="AboutSection" />
+      <ExperienceSection class="ExperienceSection" :isSmallScreen="isSmallScreen" />
+      <PortfolioSection class="PortfolioSection" :isMediumScreen="isMediumScreen" />
       <!-- end of sections -->
 
       <!-- snackbar for notification -->
       <BaseSnackbar />
 
       <!-- footer -->
-      <BaseTransit>
+      <BaseTransit name="horizontalSlide">
         <FooterBar v-if="isLoaded" />
       </BaseTransit>
+
+      <!-- copyRight -->
       <div class="Copyright">
         {{ getCopyRight() }}
       </div>
@@ -34,6 +34,7 @@ import AboutSection from '@/components/sections/AboutSection.vue'
 import ExperienceSection from '@/components/sections/ExperienceSection.vue'
 import LandingSection from '@/components/sections/LandingSection.vue'
 import PortfolioSection from '@/components/sections/PortfolioSection.vue'
+import ScrollReveal from 'scrollreveal'
 import { onMounted, onUnmounted, ref } from 'vue'
 
 import BaseTransit from '../components/base/BaseTransit.vue'
@@ -47,12 +48,19 @@ const isSmallScreen = ref(false)
 const isMediumScreen = ref(false)
 
 onMounted(() => {
+  const scrollInstance = ScrollReveal()
+
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', handleResize)
   shdShowHeader.value = true
   isSmallScreen.value = window.innerWidth <= 980
   isMediumScreen.value = window.innerWidth <= 1280
   isLoaded.value = true
+
+  scrollInstance.reveal('.LandingSection', { delay: 100 })
+  scrollInstance.reveal('.AboutSection', { delay: 250 })
+  scrollInstance.reveal('.ExperienceSection', { delay: 250 })
+  scrollInstance.reveal('.PortfolioSection', { delay: 250 })
 })
 
 onUnmounted(() => {

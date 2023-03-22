@@ -4,7 +4,7 @@ Hi there I am Lewis, a Full Stack Developer, this is a simple single page web ap
 
 ## Description
 
-The project is a web application that presents information about me as a developer. It includes sections such as my professional experience, technical skills, and projects I have worked on.
+This project is a web application that presents information about me as a developer. It includes sections such as my professional experience, technical skills, and projects I have worked on.
 
 ## Tech Stacks
 

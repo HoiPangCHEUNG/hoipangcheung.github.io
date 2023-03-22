@@ -18,6 +18,7 @@
 <script lang="ts" setup>
 import etaApp from '@/assets/etaApp.jpeg'
 import nodeJsExpressJs from '@/assets/nodeJsExpressJs.jpeg'
+import personalProj from '@/assets/personalProj.jpeg'
 import translator from '@/assets/translator.jpeg'
 
 import BaseProjectInfo from '../base/BaseProjectInfo.vue'
@@ -35,23 +36,28 @@ const projects = [
     description:
       'TTC Next is a real-time transit application that provides estimated arrival times (eta) for TTC buses and streetcars',
     site: 'https://hoipangcheung.github.io/TTC-Next/',
-    buttonName: 'Try it'
+    githubUrl: 'https://github.com/HoiPangCHEUNG/TTC-Next'
+  },
+  {
+    title: 'Personal Project ',
+    mediaPath: personalProj,
+    description: 'A single page web application that let you know more about me',
+    site: 'https://hoipangcheung.github.io/',
+    githubUrl: 'https://github.com/HoiPangCHEUNG/hoipangcheung.github.io'
   },
   {
     title: 'ChatGpt JsonTranslator',
     mediaPath: translator,
     description:
       'A simple Python script that translate the content of your jsonFile into different language',
-    site: 'https://github.com/HoiPangCHEUNG/chatGptJsonTranslator',
-    buttonName: 'Source Code'
+    githubUrl: 'https://github.com/HoiPangCHEUNG/chatGptJsonTranslator'
   },
   {
     title: 'NodeJs Starter Template ',
     mediaPath: nodeJsExpressJs,
     description:
       'A sample project written in Typescript demonstrates how you could use inversifyJS in NodeJS for better management of dependency injection.',
-    site: 'https://github.com/HoiPangCHEUNG/minimal-backend-demo',
-    buttonName: 'Source Code'
+    githubUrl: 'https://github.com/HoiPangCHEUNG/minimal-backend-demo'
   }
 ]
 </script>

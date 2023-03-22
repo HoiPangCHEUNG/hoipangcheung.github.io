@@ -1,4 +1,4 @@
-export const handleOpenNewTabClick = (link: string) => {
+export const handleOpenNewTabClick = (link?: string) => {
   if (!link) return
   window.open(link)
 }

@@ -53,6 +53,7 @@ const techStacks = [
   'CQRS'
 ]
 </script>
+
 <style scoped>
 #AboutContainer {
   min-height: 100vh;

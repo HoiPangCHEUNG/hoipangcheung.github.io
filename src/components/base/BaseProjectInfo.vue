@@ -1,7 +1,7 @@
 <template>
   <div class="BaseProjectInfo" :class="{ BaseProjectInfoReversed: props.shdReverse }">
-    <div>
-      <v-img :src="props.mediaPath" aspect-ratio="1.78" width=""></v-img>
+    <div class="elevation-10">
+      <v-img :src="props.mediaPath" aspect-ratio="1.78"></v-img>
     </div>
     <div class="BaseProjectInfoDetails">
       <h2>{{ props.title }}</h2>

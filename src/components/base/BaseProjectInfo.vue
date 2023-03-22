@@ -8,13 +8,23 @@
       <p>
         {{ props.description }}
       </p>
-      <BaseButton
-        class="PortfolioButton"
-        :name="props.buttonName"
-        color="#562B08"
-        size="large"
-        @click="handleOpenNewTabClick(props.site)"
-      ></BaseButton>
+      <div class="BaseButtonGroup">
+        <BaseButton
+          v-if="props.site"
+          class="PortfolioButton"
+          name="Try it"
+          color="#562B08"
+          size="large"
+          @click="handleOpenNewTabClick(props.site)"
+        ></BaseButton>
+        <BaseButton
+          class="PortfolioButton"
+          name="Source Code"
+          color="#562B08"
+          size="large"
+          @click="handleOpenNewTabClick(props.githubUrl)"
+        ></BaseButton>
+      </div>
     </div>
   </div>
 </template>
@@ -35,6 +45,13 @@ console.log(props)
   grid-template-columns: 1fr 0.5fr;
   grid-gap: 2rem;
   margin-top: 2rem;
+}
+
+.BaseButtonGroup {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 12px;
 }
 
 .BaseProjectInfoReversed {
@@ -63,6 +80,13 @@ p {
 @media (max-width: 1280px) {
   .BaseProjectInfo {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .BaseButtonGroup {
+    flex-direction: column;
+    align-items: center;
   }
 }
 </style>

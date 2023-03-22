@@ -47,7 +47,10 @@ const techStacks = [
   'Jest',
   'Pytest',
   'Google Analytics',
-  'Vuetify'
+  'Vuetify',
+  'Vuex',
+  'Event-Sourcing',
+  'CQRS'
 ]
 </script>
 <style scoped>

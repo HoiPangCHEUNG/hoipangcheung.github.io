@@ -1,6 +1,6 @@
 <template>
   <div class="text-center ma-2">
-    <v-snackbar class="snackbar" v-model="shdShowSnackbar" color="#9E7676" width="50px">
+    <v-snackbar class="Snackbar" v-model="shdShowSnackbar" color="#9E7676" width="50px">
       {{ msg }}
     </v-snackbar>
   </div>
@@ -24,7 +24,7 @@ watch(snackbarMessage, () => {
 </script>
 
 <style scoped>
-.snackbar {
+.Snackbar {
   bottom: 40px;
   text-align: center;
 }

@@ -39,7 +39,7 @@ const projects = [
     githubUrl: 'https://github.com/HoiPangCHEUNG/TTC-Next'
   },
   {
-    title: 'Personal Project ',
+    title: 'About Me',
     mediaPath: personalProj,
     description: 'A single page web application that let you know more about me',
     site: 'https://hoipangcheung.github.io/',

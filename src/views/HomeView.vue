@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- header -->
-    <v-parallax class="Parallax" :src="bg" min-height="400vh">
+    <v-parallax class="Parallax" :src="bg3" min-height="400vh">
       <HeaderBar :isSmallScreen="isSmallScreen" :shdShowHeader="shdShowHeader"></HeaderBar>
 
       <!-- start of sections -->
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts" setup>
-import bg from '@/assets/bg.jpeg'
+import bg3 from '@/assets/bg3.jpeg'
 import BaseSnackbar from '@/components/base/BaseSnackbar.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
 import ExperienceSection from '@/components/sections/ExperienceSection.vue'

@@ -38,6 +38,7 @@ const contents = [
 }
 
 .SubTitle {
+  margin-top: 36px;
   text-align: center;
 }
 

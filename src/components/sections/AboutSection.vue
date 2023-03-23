@@ -90,6 +90,7 @@ h1 {
 
 .Chip {
   pointer-events: none;
+  font-weight: 500;
 }
 
 @media (min-width: 1281px) {

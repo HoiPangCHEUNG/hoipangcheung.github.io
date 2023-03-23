@@ -113,4 +113,10 @@ h1 {
     width: 80%;
   }
 }
+
+@media (max-width: 500px) {
+  #AboutContainer {
+    min-height: 120vh;
+  }
+}
 </style>

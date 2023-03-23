@@ -17,7 +17,6 @@
 
 <script lang="ts" setup>
 import etaApp from '@/assets/etaApp.jpeg'
-import nodeJsExpressJs from '@/assets/nodeJsExpressJs.jpeg'
 import personalProj from '@/assets/personalProj.jpeg'
 import translator from '@/assets/translator.jpeg'
 

@@ -6,13 +6,8 @@
 
 <script lang="ts" setup>
 import { BaseTransitProps } from '@/models/props/BaseTransitProps'
-import { onMounted } from 'vue'
 
 const props = defineProps<BaseTransitProps>()
-
-onMounted(() => {
-  console.log(props)
-})
 </script>
 
 <style>

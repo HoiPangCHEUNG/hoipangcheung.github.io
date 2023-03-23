@@ -48,7 +48,7 @@ const isSmallScreen = ref(false)
 const isMediumScreen = ref(false)
 
 onMounted(() => {
-  const scrollInstance = ScrollReveal({ distance: '400px' })
+  const scrollInstance = ScrollReveal({ distance: '20px' })
 
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', handleResize)

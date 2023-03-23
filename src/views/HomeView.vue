@@ -48,7 +48,7 @@ const isSmallScreen = ref(false)
 const isMediumScreen = ref(false)
 
 onMounted(() => {
-  const scrollInstance = ScrollReveal({ distance: '20px' })
+  const scrollInstance = ScrollReveal({ distance: '10px' })
 
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', handleResize)
@@ -58,9 +58,9 @@ onMounted(() => {
   isLoaded.value = true
 
   scrollInstance.reveal('.LandingSection', { delay: 100 })
-  scrollInstance.reveal('.AboutSection', { delay: 200, origin: 'left' })
-  scrollInstance.reveal('.ExperienceSection', { delay: 200, origin: 'right' })
-  scrollInstance.reveal('.PortfolioSection', { delay: 200, origin: 'left' })
+  scrollInstance.reveal('.AboutSection', { delay: 200 })
+  scrollInstance.reveal('.ExperienceSection', { delay: 200 })
+  scrollInstance.reveal('.PortfolioSection', { delay: 200 })
 })
 
 onUnmounted(() => {

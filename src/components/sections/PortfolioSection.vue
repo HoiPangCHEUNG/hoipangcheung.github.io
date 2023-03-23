@@ -51,13 +51,6 @@ const projects = [
     description:
       'A simple Python script that translate the content of your jsonFile into different language',
     githubUrl: 'https://github.com/HoiPangCHEUNG/chatGptJsonTranslator'
-  },
-  {
-    title: 'NodeJs Starter Template ',
-    mediaPath: nodeJsExpressJs,
-    description:
-      'A sample project written in Typescript demonstrates how you could use inversifyJS in NodeJS for better management of dependency injection.',
-    githubUrl: 'https://github.com/HoiPangCHEUNG/minimal-backend-demo'
   }
 ]
 </script>

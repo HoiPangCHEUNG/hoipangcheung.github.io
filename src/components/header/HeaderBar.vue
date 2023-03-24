@@ -1,6 +1,6 @@
 <template>
   <div class="HeaderContainer">
-    <BaseTransit name="verticalSlide" v-if="!props.isSmallScreen">
+    <BaseTransit v-if="!props.isSmallScreen" name="verticalSlide">
       <HeaderContent v-show="shdShowHeader" />
     </BaseTransit>
 

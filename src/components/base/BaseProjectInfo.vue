@@ -12,15 +12,15 @@
         <BaseButton
           v-if="props.site"
           class="PortfolioButton"
-          name="Try it"
           color="#562B08"
+          name="Try it"
           size="large"
           @click="handleOpenNewTabClick(props.site)"
         />
         <BaseButton
           class="PortfolioButton"
-          name="Source Code"
           color="#562B08"
+          name="Source Code"
           size="large"
           @click="handleOpenNewTabClick(props.githubUrl)"
         />

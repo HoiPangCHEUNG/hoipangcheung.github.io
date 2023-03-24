@@ -1,9 +1,9 @@
 <template>
   <div id="LandingContainer">
-    <v-card color="transparent" class="ProfileCard mx-auto elevation-0" rounded="0">
+    <v-card class="ProfileCard mx-auto elevation-0" color="transparent" rounded="0">
       <div class="Avatar">
-        <v-avatar variant="outlined" color="grey" size="300" rounded="50">
-          <v-img class="Propic" cover :src="propic" />
+        <v-avatar color="grey" rounded="50" size="300" variant="outlined">
+          <v-img class="Propic" :src="propic" cover />
         </v-avatar>
         <p v-html="avatar.name" />
         <p class="Profession" v-html="avatar.profession" />
@@ -12,8 +12,8 @@
       <div class="Background">
         <h2 class="Title" v-html="profile.title" />
         <p
-          class="Contents"
           v-for="(content, index) in profile.contents"
+          class="Contents"
           v-html="content"
           :key="index"
         />

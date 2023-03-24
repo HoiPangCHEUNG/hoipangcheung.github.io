@@ -1,25 +1,25 @@
 <template>
   <div id="ExperienceContainer">
-    <v-timeline class="Timeline" truncate-line="end" :side="getSide">
+    <v-timeline class="Timeline" :side="getSide" truncate-line="end">
       <v-timeline-item
         v-for="(info, i) in infos"
-        :key="i"
-        :dot-color="info.color"
-        size="small"
         :class="i"
+        :dot-color="info.color"
+        :key="i"
+        size="small"
       >
         <template v-slot:opposite>
           <div
             :class="`pt-1 headline font-weight-bold`"
-            :style="getStyle(info.color)"
             v-text="info.year"
+            :style="getStyle(info.color)"
           />
         </template>
         <div class="Contents">
           <h2
             :class="`headline font-weight-light mb-4`"
-            :style="getStyle(info.color)"
             v-html="info.title"
+            :style="getStyle(info.color)"
           />
           <p v-html="info.event" />
         </div>
@@ -28,7 +28,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { cuhk, hket, initium, prisec, scmp, tabNext } from '@/constant/link'
 import { computed } from 'vue'
 

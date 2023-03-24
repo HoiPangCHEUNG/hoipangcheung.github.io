@@ -2,7 +2,7 @@
   <div id="LandingContainer">
     <v-card class="ProfileCard mx-auto elevation-0" color="transparent" rounded="0">
       <div class="Avatar">
-        <v-avatar color="grey" rounded="50" size="300" variant="outlined">
+        <v-avatar class="PropicContainer" color="grey" rounded="50" size="300" variant="outlined">
           <v-img class="Propic" :src="propic" cover />
         </v-avatar>
         <p v-html="avatar.name" />
@@ -108,14 +108,27 @@ const profile = {
   transition: all 0.2s ease-in-out;
 }
 
-.Propic:hover {
-  transition: all 0.2s ease-in-out;
-  transform: scale(1.3);
+.PropicContainer {
+  border-radius: 50%;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
-.Propic:not(:hover) {
-  transition: all 0.2s ease-in-out;
+.Propic {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.PropicContainer:hover {
+  -webkit-transform: scale(1);
   transform: scale(1);
+}
+
+.PropicContainer:hover .Propic {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }
 
 .DarkChip {

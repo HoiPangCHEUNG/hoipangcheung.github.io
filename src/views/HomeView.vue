@@ -1,7 +1,6 @@
 <template>
   <main>
     <!-- header -->
-    <!-- <v-parallax class="Parallax" :src="bg3" min-height="400vh"> -->
     <HeaderBar :isSmallScreen="isSmallScreen" :shdShowHeader="shdShowHeader"></HeaderBar>
 
     <!-- start of section -->
@@ -30,7 +29,6 @@
     <div class="Copyright">
       {{ getCopyRight() }}
     </div>
-    <!-- </v-parallax> -->
   </main>
 </template>
 
@@ -72,7 +70,7 @@ onMounted(() => {
   scrollInstance.reveal('#ExperienceSectionBuffer', { delay: 300 })
   scrollInstance.reveal('.ExperienceSection', { delay: 300 })
   scrollInstance.reveal('#PortfolioSectionBuffer', { delay: 300 })
-  scrollInstance.reveal('.PortfolioSection', { delay: 200 })
+  scrollInstance.reveal('.PortfolioSection', { delay: 300 })
 })
 
 onUnmounted(() => {

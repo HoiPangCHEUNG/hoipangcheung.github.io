@@ -1,7 +1,13 @@
 <template>
   <div id="ExperienceContainer">
     <v-timeline class="Timeline" truncate-line="end" :side="getSide">
-      <v-timeline-item v-for="(info, i) in infos" :key="i" :dot-color="info.color" size="small">
+      <v-timeline-item
+        v-for="(info, i) in infos"
+        :key="i"
+        :dot-color="info.color"
+        size="small"
+        :class="i"
+      >
         <template v-slot:opposite>
           <div
             :class="`pt-1 headline font-weight-bold`"
@@ -9,7 +15,7 @@
             v-text="info.year"
           />
         </template>
-        <div class="Content">
+        <div class="Contents">
           <h2
             :class="`headline font-weight-light mb-4`"
             :style="getStyle(info.color)"
@@ -96,8 +102,18 @@ const infos = [
   width: 95%;
 }
 
-.Content {
+.Contents {
   max-width: 400px;
+}
+
+.Contents:hover {
+  transform: translateY(-4px);
+  transition: all 0.2s ease-in-out;
+}
+
+.Contents:not(:hover) {
+  transform: translateY(4px);
+  transition: all 0.2s ease-in-out;
 }
 
 h2 {

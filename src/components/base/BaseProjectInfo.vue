@@ -1,6 +1,6 @@
 <template>
   <div class="BaseProjectInfo" :class="{ BaseProjectInfoReversed: props.shdReverse }">
-    <v-card class="elevation-10 rounded-lg">
+    <v-card class="elevation-10 Card rounded-lg">
       <v-img :src="props.mediaPath" aspect-ratio="1.78"></v-img>
     </v-card>
     <div class="BaseProjectInfoDetails">
@@ -56,6 +56,16 @@ const props = defineProps<BaseProjectInfoProps>()
 .BaseProjectInfoReversed {
   direction: rtl;
   grid-auto-flow: column;
+}
+
+.Card:hover {
+  transform: translateY(-4px);
+  transition: all 0.2s ease-in-out;
+}
+
+.Card:not(:hover) {
+  transform: translateY(4px);
+  transition: all 0.2s ease-in-out;
 }
 
 .BaseProjectInfoDetails {

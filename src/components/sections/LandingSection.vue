@@ -71,7 +71,7 @@ const profile = {
   contents: [
     `I'm a <b><i>Full Stack Developer</b></i> with a main focus on building and maintaining complex web applications. I'm passionate about delivering the best possible user experience and am particularly skilled in working with <b><i>Vue.js</b></i>, <b><i>React.js</b></i> & <b><i>Node.js</b></i>.`,
     `Currently I'm seeking new job opportunities that will allow me to make a meaningful contribution, if you have a position that aligns with my skills and experience, please don't hesitate to get in touch with me.`,
-    'Below are some other tools I have been using lately~'
+    'Below are some tools I have been using lately~'
   ]
 }
 </script>

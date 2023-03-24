@@ -5,25 +5,19 @@
       name="Home"
       variant="flat"
       @clicked="handleButtonClick('LandingContainer')"
-    ></BaseButton>
-    <BaseButton
-      color="transparent"
-      name="About"
-      variant="flat"
-      @clicked="handleButtonClick('AboutContainer')"
-    ></BaseButton>
+    />
     <BaseButton
       color="transparent"
       name="Experience"
       variant="flat"
-      @clicked="handleButtonClick('ExperienceContainer')"
-    ></BaseButton>
+      @clicked="handleButtonClick('ExperienceSectionBuffer')"
+    />
     <BaseButton
       color="transparent"
       name="Portfolio"
       variant="flat"
-      @clicked="handleButtonClick('PortfolioContainer')"
-    ></BaseButton>
+      @clicked="handleButtonClick('PortfolioSectionBuffer')"
+    />
   </div>
 </template>
 
@@ -55,7 +49,7 @@ const handleButtonClick = (goto: string) => {
   z-index: 100;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1280px) {
   .HeaderContentContainer {
     flex-direction: column;
   }

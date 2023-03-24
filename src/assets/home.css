@@ -10,3 +10,9 @@ body {
 p {
   font-weight: 500;
 }
+
+a {
+  color: #c69749;
+  text-decoration: none;
+  font-style: italic;
+}

@@ -1,8 +1,8 @@
 <template>
   <div class="BaseProjectInfo" :class="{ BaseProjectInfoReversed: props.shdReverse }">
-    <div class="elevation-10">
+    <v-card class="elevation-10 Card rounded-lg">
       <v-img :src="props.mediaPath" aspect-ratio="1.78"></v-img>
-    </div>
+    </v-card>
     <div class="BaseProjectInfoDetails">
       <h2>{{ props.title }}</h2>
       <p>
@@ -12,18 +12,18 @@
         <BaseButton
           v-if="props.site"
           class="PortfolioButton"
-          name="Try it"
           color="#562B08"
+          name="Try it"
           size="large"
           @click="handleOpenNewTabClick(props.site)"
-        ></BaseButton>
+        />
         <BaseButton
           class="PortfolioButton"
-          name="Source Code"
           color="#562B08"
+          name="Source Code"
           size="large"
           @click="handleOpenNewTabClick(props.githubUrl)"
-        ></BaseButton>
+        />
       </div>
     </div>
   </div>
@@ -56,6 +56,16 @@ const props = defineProps<BaseProjectInfoProps>()
 .BaseProjectInfoReversed {
   direction: rtl;
   grid-auto-flow: column;
+}
+
+.Card:hover {
+  transform: translateY(-4px);
+  transition: all 0.2s ease-in-out;
+}
+
+.Card:not(:hover) {
+  transform: translateY(4px);
+  transition: all 0.2s ease-in-out;
 }
 
 .BaseProjectInfoDetails {

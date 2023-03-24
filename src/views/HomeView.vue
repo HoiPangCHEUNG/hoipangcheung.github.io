@@ -1,36 +1,40 @@
 <template>
   <main>
     <!-- header -->
-    <v-parallax class="Parallax" :src="bg3" min-height="400vh">
-      <HeaderBar :isSmallScreen="isSmallScreen" :shdShowHeader="shdShowHeader"></HeaderBar>
+    <HeaderBar :isSmallScreen="isSmallScreen" :shdShowHeader="shdShowHeader"></HeaderBar>
 
-      <!-- start of section -->
-      <LandingSection class="LandingSection" />
-      <AboutSection class="AboutSection" />
-      <ExperienceSection class="ExperienceSection" :isSmallScreen="isSmallScreen" />
-      <PortfolioSection class="PortfolioSection" :isMediumScreen="isMediumScreen" />
-      <!-- end of sections -->
+    <!-- start of section -->
+    <LandingSection class="LandingSection" />
+    <BaseSectionBuffer
+      id="ExperienceSectionBuffer"
+      :title="sectionBuffers.experience"
+    ></BaseSectionBuffer>
+    <ExperienceSection class="ExperienceSection" :isSmallScreen="isSmallScreen" />
+    <BaseSectionBuffer
+      id="PortfolioSectionBuffer"
+      :title="sectionBuffers.portfolio"
+    ></BaseSectionBuffer>
+    <PortfolioSection class="PortfolioSection" :isMediumScreen="isMediumScreen" />
+    <!-- end of sections -->
 
-      <!-- snackbar for notification -->
-      <BaseSnackbar />
+    <!-- snackbar for notification -->
+    <BaseSnackbar />
 
-      <!-- footer -->
-      <BaseTransit name="horizontalSlide">
-        <FooterBar v-if="isLoaded" />
-      </BaseTransit>
+    <!-- footer -->
+    <BaseTransit name="horizontalSlide">
+      <FooterBar v-if="isLoaded" />
+    </BaseTransit>
 
-      <!-- copyRight -->
-      <div class="Copyright">
-        {{ getCopyRight() }}
-      </div>
-    </v-parallax>
+    <!-- copyRight -->
+    <div class="Copyright">
+      {{ getCopyRight() }}
+    </div>
   </main>
 </template>
 
 <script lang="ts" setup>
-import bg3 from '@/assets/bg3.jpeg'
+import BaseSectionBuffer from '@/components/base/BaseSectionBuffer.vue'
 import BaseSnackbar from '@/components/base/BaseSnackbar.vue'
-import AboutSection from '@/components/sections/AboutSection.vue'
 import ExperienceSection from '@/components/sections/ExperienceSection.vue'
 import LandingSection from '@/components/sections/LandingSection.vue'
 import PortfolioSection from '@/components/sections/PortfolioSection.vue'
@@ -47,20 +51,26 @@ const shdShowHeader = ref(false)
 const isSmallScreen = ref(false)
 const isMediumScreen = ref(false)
 
+const sectionBuffers = {
+  experience: 'The Journey Begins!~ 🎉',
+  portfolio: 'Some of my personal works 👀'
+}
+
 onMounted(() => {
-  const scrollInstance = ScrollReveal({ distance: '10px' })
+  const scrollInstance = ScrollReveal({ distance: '60px', origin: 'top' })
 
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', handleResize)
   shdShowHeader.value = true
-  isSmallScreen.value = window.innerWidth <= 980
+  isSmallScreen.value = window.innerWidth <= 1280
   isMediumScreen.value = window.innerWidth <= 1280
   isLoaded.value = true
 
   scrollInstance.reveal('.LandingSection', { delay: 100 })
-  scrollInstance.reveal('.AboutSection', { delay: 200 })
-  scrollInstance.reveal('.ExperienceSection', { delay: 200 })
-  scrollInstance.reveal('.PortfolioSection', { delay: 200 })
+  scrollInstance.reveal('#ExperienceSectionBuffer', { delay: 300 })
+  scrollInstance.reveal('.ExperienceSection', { delay: 300 })
+  scrollInstance.reveal('#PortfolioSectionBuffer', { delay: 300 })
+  scrollInstance.reveal('.PortfolioSection', { delay: 300 })
 })
 
 onUnmounted(() => {
@@ -69,7 +79,7 @@ onUnmounted(() => {
 })
 
 const handleResize = () => {
-  isSmallScreen.value = window.innerWidth <= 980 ? true : false
+  isSmallScreen.value = window.innerWidth <= 1280 ? true : false
   isMediumScreen.value = window.innerWidth <= 1280 ? true : false
 }
 
@@ -93,6 +103,10 @@ const getCopyRight = () => {
   bottom: 0;
 }
 
+main {
+  background-image: pink;
+}
+
 h3 {
   font-size: 16px;
 }
@@ -107,7 +121,7 @@ h1 {
   margin-top: 64px;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1280px) {
   h3 {
     font-size: 12px;
   }

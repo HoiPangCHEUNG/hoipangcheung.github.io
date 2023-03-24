@@ -1,12 +1,12 @@
 <template>
   <div class="HeaderContainer">
     <BaseTransit name="verticalSlide" v-if="!props.isSmallScreen">
-      <HeaderContent v-show="shdShowHeader"></HeaderContent>
+      <HeaderContent v-show="shdShowHeader" />
     </BaseTransit>
 
     <v-layout v-else>
       <v-navigation-drawer v-model="shdShowMenu" temporary theme="dark">
-        <HeaderContent @click="handleGotoClick"></HeaderContent>
+        <HeaderContent @click="handleGotoClick" />
       </v-navigation-drawer>
       <BaseTransit name="verticalSlide">
         <BaseButton
@@ -16,7 +16,7 @@
           icon="mdi-menu"
           variant="flat"
           @click="handleMenuClick"
-        ></BaseButton>
+        />
       </BaseTransit>
     </v-layout>
   </div>

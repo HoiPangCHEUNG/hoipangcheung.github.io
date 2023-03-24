@@ -11,10 +11,6 @@ const props = defineProps<BaseTransitProps>()
 </script>
 
 <style>
-/*
-  Enter and leave animations can use different
-  durations and timing functions.
-*/
 .horizontalSlide-enter-active {
   transition: all 0.5s ease-out;
 }
@@ -39,7 +35,7 @@ const props = defineProps<BaseTransitProps>()
 
 .verticalSlide-enter-from,
 .verticalSlide-leave-to {
-  transform: translateY(-5px);
+  transform: translateY(5px);
   opacity: 0;
 }
 </style>

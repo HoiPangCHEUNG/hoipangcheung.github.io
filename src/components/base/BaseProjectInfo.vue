@@ -1,8 +1,8 @@
 <template>
   <div class="BaseProjectInfo" :class="{ BaseProjectInfoReversed: props.shdReverse }">
-    <div class="elevation-10">
+    <v-card class="elevation-10 rounded-lg">
       <v-img :src="props.mediaPath" aspect-ratio="1.78"></v-img>
-    </div>
+    </v-card>
     <div class="BaseProjectInfoDetails">
       <h2>{{ props.title }}</h2>
       <p>
@@ -16,14 +16,14 @@
           color="#562B08"
           size="large"
           @click="handleOpenNewTabClick(props.site)"
-        ></BaseButton>
+        />
         <BaseButton
           class="PortfolioButton"
           name="Source Code"
           color="#562B08"
           size="large"
           @click="handleOpenNewTabClick(props.githubUrl)"
-        ></BaseButton>
+        />
       </div>
     </div>
   </div>

@@ -43,7 +43,7 @@ const props = defineProps<BaseProjectInfoProps>()
   display: grid;
   grid-template-columns: 1fr 0.5fr;
   grid-gap: 2rem;
-  margin-top: 2rem;
+  margin-bottom: 64px;
 }
 
 .BaseButtonGroup {
@@ -82,7 +82,6 @@ p {
   text-align: center;
 }
 .PortfolioButton {
-  margin-top: 16px;
   color: #eeeeee;
 }
 

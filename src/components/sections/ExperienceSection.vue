@@ -128,6 +128,10 @@ p {
   #ExperienceContainer {
     margin-bottom: 64px;
   }
+
+  .Contents {
+    max-width: 600px;
+  }
 }
 
 @media (max-width: 680px) {

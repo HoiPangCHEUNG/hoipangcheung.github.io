@@ -81,6 +81,10 @@ p {
   color: #424242;
   text-align: center;
 }
+
+h2 {
+  text-align: center;
+}
 .PortfolioButton {
   color: #eeeeee;
 }

@@ -53,7 +53,7 @@ const isMediumScreen = ref(false)
 
 const sectionBuffers = {
   experience: 'The Journey Begins!~ 🎉',
-  portfolio: 'Some of my personal works 👀'
+  portfolio: 'Some of my personal works!~ 👀'
 }
 
 onMounted(() => {

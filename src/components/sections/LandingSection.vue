@@ -1,98 +1,193 @@
 <template>
   <div id="LandingContainer">
-    <div class="LandingContent">
-      <h1>HI! THIS IS LEWIS</h1>
-      <div class="SubTitle">
-        <p v-for="(content, index) in contents" v-html="content" :key="index"></p>
+    <v-card color="transparent" class="ProfileCard mx-auto elevation-0" rounded="0">
+      <div class="Avatar">
+        <v-avatar variant="outlined" color="grey" size="300" rounded="50">
+          <v-img class="Propic" cover :src="propic" />
+        </v-avatar>
+        <p v-html="avatar.name" />
+        <p class="Profession" v-html="avatar.profession" />
       </div>
-      <BaseButton
-        class="PortfolioButton"
-        color="#562B08"
-        name="Portfolio"
-        size="x-large"
-        @click="handleGotoClick('PortfolioContainer')"
-      ></BaseButton>
-      <v-icon class="arrow-down-icon"> mdi-arrow-down </v-icon>
-    </div>
+
+      <div class="Background">
+        <h2 class="Title" v-html="profile.title" />
+        <p
+          class="Contents"
+          v-for="(content, index) in profile.contents"
+          v-html="content"
+          :key="index"
+        />
+        <div>
+          <v-chip-group class="ChipGroup">
+            <v-chip
+              v-for="(item, index) in techStacks"
+              class="Chip"
+              :class="getClass(index)"
+              :key="index"
+              label
+            >
+              {{ item }}
+            </v-chip>
+          </v-chip-group>
+        </div>
+      </div>
+    </v-card>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { handleGotoClick } from '@/utils/url'
+import propic from '@/assets/propic.jpeg'
 
-import BaseButton from '../base/BaseButton.vue'
+const getClass = (index: number) => {
+  return [index % 2 === 0 ? 'DarkChip' : 'LightChip']
+}
 
-const contents = [
-  ' A Full Stack Developer with expereince in building and maintaining complex web applications.',
-  'Possessing expertise in <b><i>Vue.js</i></b> and <b><i>Node.js</i></b>'
+const avatar = { name: 'Lewis', profession: 'Full Stack Developer' }
+
+const techStacks = [
+  'MongoDB',
+  'Express',
+  'Vue',
+  'React',
+  'Node',
+  'Typescript',
+  'Vuetify',
+  'Vuex',
+  'Redux',
+  'Python',
+  'RabbitMq',
+  'WebSocket',
+  'Docker',
+  'Kubernetes',
+  'Jest',
+  'Pytest',
+  'Google Analytics',
+  'Event-Sourcing',
+  'CQRS'
 ]
+
+const profile = {
+  title: 'Hi There I am Lewis!~ 👻',
+  contents: [
+    `I'm a <b><i>Full Stack Developer</b></i> with a main focus on building and maintaining complex web applications. I'm passionate about delivering the best possible user experience and am particularly skilled in working with <b><i>Vue.js</b></i>, <b><i>React.js</b></i> & <b><i>Node.js</b></i>.`,
+    `Currently I'm seeking new job opportunities that will allow me to make a meaningful contribution, if you have a position that aligns with my skills and experience, please don't hesitate to get in touch with me.`,
+    'Below are some other tools I have been using lately~'
+  ]
+}
 </script>
 
 <style scoped>
 #LandingContainer {
   min-height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
   flex-direction: column;
 }
 
-.SubTitle {
-  margin-top: 36px;
-  text-align: center;
-}
-
-.PortfolioButton {
-  margin-top: 16px;
-  color: #eeeeee;
-}
-
-.LandingContent {
-  width: 80%;
+.ProfileCard {
+  width: 60%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 4rem;
 }
 
-h1 {
-  letter-spacing: 3px;
-  font-weight: 900;
-}
-
-h3 {
-  margin-top: 16px;
-  text-align: end;
-  font-style: italic;
+.Chip {
   font-weight: 300;
+  margin: 8px 8px 8px 0px;
+  cursor: default;
 }
 
-@media (max-width: 400px) {
-  h1 {
-    letter-spacing: 1px;
+.Chip:hover {
+  transform: translateY(-4px);
+  transition: all 0.2s ease-in-out;
+}
+
+.Chip:not(:hover) {
+  transform: translateY(4px);
+  transition: all 0.2s ease-in-out;
+}
+
+.Propic:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.3);
+}
+
+.Propic:not(:hover) {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1);
+}
+
+.DarkChip {
+  color: #562b08;
+}
+
+.LightChip {
+  color: #647e68;
+}
+
+.Background {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+.Contents {
+  color: #333333;
+}
+
+.Title {
+  font-size: 32px;
+  font-family: Arial;
+  font-weight: 600;
+}
+.Avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 64px;
+}
+
+.Profession {
+  opacity: 0.6;
+}
+
+@media (max-width: 1500px) {
+  .ProfileCard {
+    width: 80%;
   }
 }
 
 @media (max-width: 1280px) {
   #LandingContainer {
-    min-height: 110vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 64px;
+  }
+  .ProfileCard {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .Background {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ChipGroup {
+    justify-content: center;
   }
 }
 
-.arrow-down-icon {
-  animation: arrowDown 2s infinite;
-  top: 64px;
-}
-
-@keyframes arrowDown {
-  0% {
-    transform: translateY(0);
+@media (max-width: 980px) {
+  .ProfileCard {
+    width: 90%;
   }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0);
+  .Avatar {
+    margin-top: 64px;
   }
 }
 </style>

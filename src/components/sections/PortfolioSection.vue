@@ -1,15 +1,13 @@
 <template>
   <div id="PortfolioContainer">
     <div class="PortfolioContent">
-      <h1 class="Title">Personal Portfolio</h1>
-      <v-divider />
       <div>
         <BaseProjectInfo
           v-for="(project, index) in projects"
           v-bind="project"
           :key="index"
           :shdReverse="shdReverse(index)"
-        ></BaseProjectInfo>
+        />
       </div>
     </div>
   </div>

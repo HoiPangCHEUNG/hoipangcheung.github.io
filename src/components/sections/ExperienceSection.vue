@@ -1,202 +1,122 @@
 <template>
   <div id="ExperienceContainer">
-    <v-card class="elevation-0 ExperienceContent" color="transparent">
-      <h1>Experience</h1>
-      <v-divider />
-      <div :class="stylesAttrs.classAttrs">
-        <v-tabs v-model="tab" :direction="stylesAttrs.direction" color="#562B08" show-arrows>
-          <v-tab
-            v-for="jobDetail in jobDetails"
-            :key="jobDetail.shortName"
-            :value="jobDetail.shortName"
-          >
-            {{ jobDetail.shortName }}
-          </v-tab>
-        </v-tabs>
-        <v-window class="elevation-0" v-model="tab">
-          <v-window-item
-            v-for="jobDetail in jobDetails"
-            :key="jobDetail.shortName"
-            :value="jobDetail.shortName"
-          >
-            <v-card color="transparent" flat>
-              <v-card-text>
-                <div class="roleDetails">
-                  <h2>{{ jobDetail.jobTitle }}</h2>
-                  <h3>|</h3>
-                  <h2 class="companyTitle" @click="handleOpenNewTabClick(jobDetail.url)">
-                    {{ jobDetail.fullName }}
-                  </h2>
-                </div>
-                <p class="jobDuration">{{ jobDetail.duration }}</p>
-
-                <p v-for="(duty, index) in jobDetail.duties" v-html="duty" :key="index"></p>
-              </v-card-text>
-            </v-card>
-          </v-window-item>
-        </v-window>
-      </div>
-    </v-card>
+    <v-timeline class="Timeline" truncate-line="end" :side="getSide">
+      <v-timeline-item v-for="(info, i) in infos" :key="i" :dot-color="info.color" size="small">
+        <template v-slot:opposite>
+          <div
+            :class="`pt-1 headline font-weight-bold`"
+            :style="getStyle(info.color)"
+            v-text="info.year"
+          />
+        </template>
+        <div class="Content">
+          <h2
+            :class="`headline font-weight-light mb-4`"
+            :style="getStyle(info.color)"
+            v-html="info.title"
+          />
+          <p v-html="info.event" />
+        </div>
+      </v-timeline-item>
+    </v-timeline>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { handleOpenNewTabClick } from '@/utils/url'
-import { computed, ref } from 'vue'
+<script setup lang="ts">
+import { cuhk, hket, initium, prisec, scmp, tabNext } from '@/constant/link'
+import { computed } from 'vue'
 
 const props = defineProps<{ isSmallScreen: boolean }>()
 
-const stylesAttrs = computed(() => {
-  const direction: 'horizontal' | 'vertical' | undefined = props.isSmallScreen
-    ? 'horizontal'
-    : 'vertical'
-
-  const classAttrs = props.isSmallScreen ? '' : 'd-flex flex-row'
-  return { classAttrs, direction }
+const getSide = computed(() => {
+  return props.isSmallScreen ? 'end' : undefined
 })
 
-const jobDetails = [
+const getStyle = (color: string) => {
+  return `color: ${color}`
+}
+
+const getLink = (url: string, title: string) => {
+  return `<a href="${url}" target="_blank">@${title}</a>`
+}
+
+const infos = [
   {
-    shortName: 'SCMP',
-    value: 1,
-    fullName: 'South China Morning Post',
-    duration: '2020 Nov - 2022 Sep',
-    jobTitle: 'Full Stack Developer',
-    url: 'https://www.scmp.com/',
-    duties: [
-      'Built a <b>Collaborative online editing tool</b> similar to Google Docs, allowing editors to draft articles concurrently in real-time.',
-      'Designed the backend system using the <b>Event sourcing and CQRS architecture</b>, which allows for storing and replaying of events to reconstruct application state and enable better scalability and fault tolerance.',
-      'Established and managed <b>RabbitMQ</b> to publish/subscribe updates for effective communication between asynchronous systems.',
-      'Revamped the workflow of <b>WebSocket</b> to tackle race conditions.',
-      'Teamed on user-centric design strategy in translation of <b>UI/UX</b> and business requirements into coded solutions.'
-    ]
+    year: '2017 Mar',
+    title: `QA engineer ${getLink(initium, 'Initium')}`,
+    event: `The first job I've ever had!<br/>As a QA engineer, my responsibilities included developing automated test suites using Python.`,
+    color: '#182747'
   },
   {
-    shortName: 'Prisec',
-    value: 2,
-    fullName: 'Prisec Limited',
-    duration: '2019 Jan - 2020 Oct',
-    jobTitle: 'Software Developer',
-    url: 'https://prisec.co/',
-    duties: [
-      'Developed an authenticator on top of <b>OIDC protocol</b> for hassle-free registration and login, while maintaining user anonymity.',
-      'Implemented a highly efficient Python WebCrawler capable of automatically fetching and filtering <b>millions of rows of targeted data daily</b>, allowing for easy analysis and processing.',
-      'Desgined and built a peer-2-peer trading application with <b>gRpc and Flutter</b> from scratch'
-    ]
+    year: '2017 June',
+    title: `Support engineer ${getLink(hket, 'Hong Kong Economic Times')}`,
+    event:
+      'At another digital media company, my role focused on providing user support and managing equipment.',
+    color: '#562b08'
   },
   {
-    shortName: 'TabNext',
-    value: 3,
-    fullName: 'TabNext Asia',
-    duration: '2018 March - 2018 Dec',
-    jobTitle: 'Junior Front-end Developer',
-    url: 'https://www.tabnext.asia/',
-    duties: [
-      'Developed and maintained <b>user-friendly front-end interfaces</b> for web applications, with a focus on usability, accessibility, and performance.',
-      'Collaborated with the development team to design and implement user interfaces that meet <b>business requirements</b> and adhere to design standards.',
-      'Implemented <b>responsive design principles</b> to ensure that web applications function smoothly across all devices and screen sizes.'
-    ]
+    year: '2018 Mar',
+    title: `Junior Frontend Developer ${getLink(tabNext, 'TabNext Asia')}`,
+    event: 'Learning and crafting reusable & responsive web components.',
+    color: '#495579'
   },
   {
-    shortName: 'HKET',
-    value: 4,
-    fullName: 'Hong Kong Economic Times',
-    duration: '2017 June - 2017 Aug',
-    jobTitle: 'IT support Engineer',
-    url: 'https://www.hket.com/',
-    duties: [
-      'Wrote <b>Bash scripts</b> to automate tasks, such as remote access control and device maintenance, improving efficiency.',
-      'Investigated and resolves technical issues reported by end-users.',
-      'Provided <b>Level 1 technical support</b> to end-users via phone, email, or in-person, ensuring timely resolution of issues and minimal downtime.',
-      'Installed and configured software applications and hardware devices'
-    ]
+    year: '2019 Jan',
+    title: `Software Developer ${getLink(prisec, 'Prisec')}`,
+    event: 'Developed an authenticator application on top of the OIDC protocol.',
+    color: '#182747'
   },
   {
-    shortName: 'Initium',
-    value: 5,
-    fullName: 'Initium Media',
-    duration: '2017 Mar - 2017 Aug',
-    jobTitle: 'QA Engineer',
-    url: 'https://theinitium.com/',
-    duties: [
-      'Developed automated test suites in <b>Python</b> to test RESTful APIs, reducing the time and effort required for manual testing.',
-      'Analyzed new features and changes to existing features, and wrote test cases to ensure proper functionality and regression testing.',
-      'Tracked and managed defects using <b>Jira</b>, including creating and assigning tickets, monitoring resolution status, and verifying fixes.'
-    ]
+    year: '2019 Nov',
+    title: `Graduation ${getLink(cuhk, 'CUHK')}`,
+    event: 'Officially graduated = ] 🚀  <br/>Thanks Google & my fellow groupmates',
+    color: '#562b08'
+  },
+  {
+    year: '2020 Nov',
+    title: `Full Stack Developer ${getLink(scmp, 'South China Morning Post')}`,
+    event:
+      'Designed and built a customized collaborative online editing system similar to Google Docs.',
+    color: '#495579'
   }
 ]
-const tab = ref('one')
 </script>
 
 <style scoped>
-.jobDuration {
-  font-style: italic;
-  color: #424242;
-}
-
-.roleDetails {
+#ExperienceContainer {
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
+  flex-direction: column;
+  margin-bottom: 64px;
 }
 
-.companyTitle {
-  color: #c69749;
-  cursor: pointer;
-  font-size: 16px;
+.Timeline {
+  width: 95%;
 }
 
-h1 {
-  font-size: 48px;
-  color: #562b08;
+.Content {
+  max-width: 400px;
 }
 
 h2 {
-  padding: 12px 12px 12px 0px;
-}
-
-h3 {
-  padding-right: 12px;
+  margin-top: 32px;
 }
 
 p {
-  padding-bottom: 12px;
-  font-size: 16px;
-}
-
-.v-card-text {
-  padding: 0rem;
-}
-.v-slide-group {
-  min-width: 120px;
-}
-
-#ExperienceContainer {
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.ExperienceContent {
-  width: 60%;
-}
-
-@media (min-width: 1281px) {
-  #ExperienceContainer {
-    min-height: 80vh;
-  }
+  margin-bottom: 32px;
 }
 
 @media (max-width: 1280px) {
   #ExperienceContainer {
-    min-height: 110vh;
+    margin-bottom: 64px;
   }
 }
 
-@media (max-width: 980px) {
-  .ExperienceContent {
-    width: 80%;
+@media (max-width: 680px) {
+  h2 {
+    font-size: 24px;
   }
 }
 </style>

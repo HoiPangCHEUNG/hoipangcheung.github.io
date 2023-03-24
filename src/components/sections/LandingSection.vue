@@ -110,24 +110,20 @@ const profile = {
 
 .PropicContainer {
   border-radius: 50%;
-  -webkit-transform: scale(1);
   transform: scale(1);
 }
 
 .Propic {
   width: 100%;
   height: 100%;
-  -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
 
 .PropicContainer:hover {
-  -webkit-transform: scale(1);
   transform: scale(1);
 }
 
 .PropicContainer:hover .Propic {
-  -webkit-transform: scale(1.3);
   transform: scale(1.3);
 }
 

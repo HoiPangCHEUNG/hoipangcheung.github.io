@@ -1,6 +1,6 @@
 <template>
   <div id="ExperienceContainer">
-    <v-timeline class="Timeline" :side="getSide" truncate-line="end">
+    <v-timeline class="Timeline" :side="getSide">
       <v-timeline-item
         v-for="(info, i) in infos"
         :class="i"
@@ -84,6 +84,12 @@ const infos = [
     event:
       'Designed and built a customized collaborative online editing system similar to Google Docs.',
     color: '#495579'
+  },
+  {
+    year: 'Now',
+    title: `To be Continued...`,
+    event: '',
+    color: '#9E7676'
   }
 ]
 </script>

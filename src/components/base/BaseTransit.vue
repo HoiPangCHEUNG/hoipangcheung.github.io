@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { BaseTransitProps } from '@/models/props/BaseTransitProps'
+import { BaseTransitProps } from '@/models/props/baseTransitProps'
 
 const props = defineProps<BaseTransitProps>()
 </script>

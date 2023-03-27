@@ -1,4 +1,4 @@
-export type BaseButtonProps = {
+export interface BaseButtonProps {
   name?: string
   variant?: NonNullable<'elevated' | 'text' | 'flat' | 'tonal' | 'outlined' | 'plain'>
   color?: string
@@ -6,6 +6,6 @@ export type BaseButtonProps = {
   size?: string
 }
 
-export type BaseButtonEmits = {
+export interface BaseButtonEmits {
   (e: string, value: unknown): void
 }

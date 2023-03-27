@@ -1,4 +1,10 @@
 export const github = 'https://github.com/hoipangcheung'
+export const ttcNextGithub = 'https://github.com/HoiPangCHEUNG/TTC-Next'
+export const ttcNextSite = 'https://hoipangcheung.github.io/TTC-Next/'
+export const aboutMeGithub = 'https://github.com/HoiPangCHEUNG/hoipangcheung.github.io'
+export const aboutMeSite = 'https://hoipangcheung.github.io/'
+export const chatGptJsonTranslatorGitHub = 'https://github.com/HoiPangCHEUNG/chatGptJsonTranslator'
+
 export const linkedIn = 'https://www.linkedin.com/in/hoipangcheung/'
 export const gmail = 'hoipang1e06@gmail.com'
 export const scmp = 'https://www.scmp.com/'

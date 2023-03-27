@@ -5,14 +5,14 @@
         <v-avatar class="PropicContainer" color="grey" rounded="50" size="300" variant="outlined">
           <v-img class="Propic" :src="propic" cover />
         </v-avatar>
-        <p v-html="avatar.name" />
-        <p class="Profession" v-html="avatar.profession" />
+        <p v-html="personalInfo.avatar.name" />
+        <p class="Profession" v-html="personalInfo.avatar.profession" />
       </div>
 
       <div class="Background">
-        <h2 class="Title" v-html="profile.title" />
+        <h2 class="Title" v-html="personalInfo.intro.title" />
         <p
-          v-for="(content, index) in profile.contents"
+          v-for="(content, index) in personalInfo.intro.contents"
           class="Contents"
           v-html="content"
           :key="index"
@@ -20,7 +20,7 @@
         <div>
           <v-chip-group class="ChipGroup">
             <v-chip
-              v-for="(item, index) in techStacks"
+              v-for="(item, index) in personalInfo.techStacks"
               class="Chip"
               :class="getClass(index)"
               :key="index"
@@ -37,42 +37,10 @@
 
 <script lang="ts" setup>
 import propic from '@/assets/propic.jpeg'
+import { personalInfo } from '@/data/personal'
 
 const getClass = (index: number) => {
   return [index % 2 === 0 ? 'DarkChip' : 'LightChip']
-}
-
-const avatar = { name: 'Lewis', profession: 'Full Stack Developer' }
-
-const techStacks = [
-  'MongoDB',
-  'Express',
-  'Vue',
-  'React',
-  'Node',
-  'Typescript',
-  'Vuetify',
-  'Vuex',
-  'Redux',
-  'Python',
-  'RabbitMq',
-  'WebSocket',
-  'Docker',
-  'Kubernetes',
-  'Jest',
-  'Pytest',
-  'Google Analytics',
-  'Event-Sourcing',
-  'CQRS'
-]
-
-const profile = {
-  title: 'Hi There I am Lewis!~ 👻',
-  contents: [
-    `I'm a <b><i>Full Stack Developer</b></i> with a main focus on building and maintaining complex web applications. I'm passionate about delivering the best possible user experience and am particularly skilled in working with <b><i>Vue.js</b></i>, <b><i>React.js</b></i> & <b><i>Node.js</b></i>.`,
-    `Currently I'm seeking new job opportunities that will allow me to make a meaningful contribution, if you have a position that aligns with my skills and experience, please don't hesitate to get in touch with me.`,
-    'Below are some tools I have been using lately~'
-  ]
 }
 </script>
 

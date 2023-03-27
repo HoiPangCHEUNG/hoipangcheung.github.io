@@ -14,9 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import etaApp from '@/assets/etaApp.jpeg'
-import personalProj from '@/assets/personalProj.jpeg'
-import translator from '@/assets/translator.jpeg'
+import { projects } from '@/data/portfolio'
 
 import BaseProjectInfo from '../base/BaseProjectInfo.vue'
 
@@ -25,31 +23,6 @@ const props = defineProps<{ isMediumScreen: boolean }>()
 const shdReverse = (index: number) => {
   return (index + 1) % 2 === 0 && !props.isMediumScreen
 }
-
-const projects = [
-  {
-    title: 'TTC-Next',
-    mediaPath: etaApp,
-    description:
-      'TTC Next is a real-time transit application that provides estimated arrival times (eta) for TTC buses and streetcars',
-    site: 'https://hoipangcheung.github.io/TTC-Next/',
-    githubUrl: 'https://github.com/HoiPangCHEUNG/TTC-Next'
-  },
-  {
-    title: 'About Me',
-    mediaPath: personalProj,
-    description: 'A single page web application that let you know more about me',
-    site: 'https://hoipangcheung.github.io/',
-    githubUrl: 'https://github.com/HoiPangCHEUNG/hoipangcheung.github.io'
-  },
-  {
-    title: 'ChatGpt JsonTranslator',
-    mediaPath: translator,
-    description:
-      'A simple Python script that translate the content of your jsonFile into different language',
-    githubUrl: 'https://github.com/HoiPangCHEUNG/chatGptJsonTranslator'
-  }
-]
 </script>
 
 <style scoped>

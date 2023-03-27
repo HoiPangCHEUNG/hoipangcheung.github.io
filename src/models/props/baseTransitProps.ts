@@ -1,3 +1,3 @@
-export type BaseTransitProps = {
+export interface BaseTransitProps {
   name: 'horizontalSlide' | 'verticalSlide'
 }

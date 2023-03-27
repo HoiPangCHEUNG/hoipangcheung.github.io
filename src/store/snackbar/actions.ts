@@ -1,4 +1,4 @@
-import type { ActionContext } from 'vuex'
+import { ActionContext } from 'vuex'
 
 import { SnackbarState } from './interface'
 

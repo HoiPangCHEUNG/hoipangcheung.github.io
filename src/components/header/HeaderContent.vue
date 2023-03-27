@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { BaseButtonEmits } from '@/models/props/BaseButtonProps'
+import { BaseButtonEmits } from '@/models/props/baseButtonProps'
 import { handleGotoClick } from '@/utils/url'
 
 import BaseButton from '../base/BaseButton.vue'

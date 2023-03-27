@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { BaseButtonEmits, BaseButtonProps } from '../../models/props/BaseButtonProps'
+import type { BaseButtonEmits, BaseButtonProps } from '../../models/props/baseButtonProps'
 
 const emits = defineEmits<BaseButtonEmits>()
 const props = defineProps<BaseButtonProps>()

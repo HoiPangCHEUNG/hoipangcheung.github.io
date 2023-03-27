@@ -32,7 +32,7 @@
 <script lang="ts" setup>
 import { handleOpenNewTabClick } from '@/utils/url'
 
-import { BaseProjectInfoProps } from '../../models/props/BaseProjectInfoProps'
+import { BaseProjectInfoProps } from '../../models/props/baseProjectInfoProps'
 import BaseButton from './BaseButton.vue'
 
 const props = defineProps<BaseProjectInfoProps>()

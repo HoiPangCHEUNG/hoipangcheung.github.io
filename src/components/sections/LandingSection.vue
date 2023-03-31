@@ -5,12 +5,12 @@
         <v-avatar class="PropicContainer" color="grey" rounded="50" size="300" variant="outlined">
           <v-img class="Propic" :src="propic" cover />
         </v-avatar>
-        <p v-html="personalInfo.avatar.name" />
-        <p class="Profession" v-html="personalInfo.avatar.profession" />
+        <p v-text="personalInfo.avatar.name" />
+        <p class="Profession" v-text="personalInfo.avatar.profession" />
       </div>
 
       <div class="Background">
-        <h2 class="Title" v-html="personalInfo.intro.title" />
+        <h2 class="Title" v-text="personalInfo.intro.title" />
         <p
           v-for="(content, index) in personalInfo.intro.contents"
           class="Contents"

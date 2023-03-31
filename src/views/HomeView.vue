@@ -26,9 +26,7 @@
     </BaseTransit>
 
     <!-- copyRight -->
-    <div class="Copyright">
-      {{ getCopyRight() }}
-    </div>
+    <div class="Copyright" v-text="getCopyRight()" />
   </main>
 </template>
 

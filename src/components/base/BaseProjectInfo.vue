@@ -4,10 +4,8 @@
       <v-img :src="props.mediaPath" aspect-ratio="1.78"></v-img>
     </v-card>
     <div class="BaseProjectInfoDetails">
-      <h2>{{ props.title }}</h2>
-      <p>
-        {{ props.description }}
-      </p>
+      <h2 v-text="props.title" />
+      <p v-text="props.description" />
       <div class="BaseButtonGroup">
         <BaseButton
           v-if="props.site"

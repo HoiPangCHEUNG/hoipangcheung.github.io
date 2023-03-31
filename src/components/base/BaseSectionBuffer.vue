@@ -1,6 +1,6 @@
 <template>
   <div class="SectionBuffer">
-    <h2 v-html="props.title" />
+    <h2 v-text="props.title" />
   </div>
 </template>
 

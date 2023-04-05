@@ -25,19 +25,46 @@
         variant="flat"
         @click="handleCopyClick(gmail)"
       />
+      <BaseButton
+        color="transparent"
+        icon="mdi-qrcode-scan"
+        variant="flat"
+        @click="toggleDialogStatus()"
+      />
+      <v-dialog v-model="shdShowDialog" class="QrCodeDialog" width="auto">
+        <v-card class="QrCodeCard">
+          <v-img :src="qrCode" width="400px" />
+          <BaseButton
+            color="transparent"
+            icon="mdi-close-circle"
+            variant="flat"
+            class="CloseQrCodeDialogButton"
+            @click="toggleDialogStatus()"
+          />
+        </v-card>
+      </v-dialog>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import qrCode from '@/assets/qrCode.jpeg'
 import resume from '@/assets/resume.pdf'
 import { handleOpenNewTabClick } from '@/utils/url'
+import { ref } from 'vue'
 import { useStore } from 'vuex'
 
 import { github, gmail, linkedIn } from '../../constant/link'
 import BaseButton from '../base/BaseButton.vue'
 
 const store = useStore()
+
+const shdShowDialog = ref(false)
+
+const toggleDialogStatus = () => {
+  shdShowDialog.value = !shdShowDialog.value
+  console.log(shdShowDialog.value)
+}
 
 const handleCopyClick = (mail: string) => {
   store.dispatch('notify', { message: 'Email Copied!' })
@@ -52,6 +79,20 @@ const handleCopyClick = (mail: string) => {
   position: fixed;
   bottom: 64px;
   left: 32px;
+}
+
+.QrCodeCard {
+  padding: 24px 0px;
+}
+
+.QrCodeDialog .v-card {
+  overflow: visible;
+}
+
+.CloseQrCodeDialogButton {
+  position: absolute;
+  top: -20px;
+  right: -20px;
 }
 
 @media (max-width: 1280px) {

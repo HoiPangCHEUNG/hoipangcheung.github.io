@@ -3,23 +3,23 @@
     <v-timeline class="Timeline" :side="getSide">
       <v-timeline-item
         v-for="(info, i) in experiences"
+        :key="i"
         :class="i"
         :dot-color="info.color"
-        :key="i"
         size="small"
       >
-        <template v-slot:opposite>
+        <template #opposite>
           <div
             :class="`pt-1 headline font-weight-bold`"
-            v-text="info.year"
             :style="getStyle(info.color)"
+            v-text="info.year"
           />
         </template>
         <div class="Contents">
           <h2
             :class="`headline font-weight-light mb-4`"
-            v-html="info.title"
             :style="getStyle(info.color)"
+            v-html="info.title"
           />
           <p v-html="info.event" />
         </div>

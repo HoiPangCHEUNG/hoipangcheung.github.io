@@ -13,17 +13,17 @@
         <h2 class="Title" v-text="personalInfo.intro.title" />
         <p
           v-for="(content, index) in personalInfo.intro.contents"
+          :key="index"
           class="Contents"
           v-html="content"
-          :key="index"
         />
         <div>
           <v-chip-group class="ChipGroup">
             <v-chip
               v-for="(item, index) in personalInfo.techStacks"
+              :key="index"
               class="Chip"
               :class="getClass(index)"
-              :key="index"
               label
             >
               {{ item }}

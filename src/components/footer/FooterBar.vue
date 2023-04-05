@@ -63,7 +63,6 @@ const shdShowDialog = ref(false)
 
 const toggleDialogStatus = () => {
   shdShowDialog.value = !shdShowDialog.value
-  console.log(shdShowDialog.value)
 }
 
 const handleCopyClick = (mail: string) => {

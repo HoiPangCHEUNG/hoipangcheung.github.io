@@ -1,6 +1,6 @@
 <template>
   <div class="text-center ma-2">
-    <v-snackbar class="Snackbar" v-model="shdShowSnackbar" color="#9E7676" width="50px">
+    <v-snackbar v-model="shdShowSnackbar" class="Snackbar" color="#9E7676" width="50px">
       {{ msg }}
     </v-snackbar>
   </div>

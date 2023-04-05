@@ -3,7 +3,7 @@
     <v-card class="ProfileCard mx-auto elevation-0" color="transparent" rounded="0">
       <div class="Avatar">
         <v-avatar class="PropicContainer" color="grey" rounded="50" size="300" variant="outlined">
-          <v-img class="Propic" :src="propic" cover />
+          <v-img class="Propic" cover :src="propic" />
         </v-avatar>
         <p v-text="personalInfo.avatar.name" />
         <p class="Profession" v-text="personalInfo.avatar.profession" />
@@ -13,17 +13,17 @@
         <h2 class="Title" v-text="personalInfo.intro.title" />
         <p
           v-for="(content, index) in personalInfo.intro.contents"
+          :key="index"
           class="Contents"
           v-html="content"
-          :key="index"
         />
         <div>
           <v-chip-group class="ChipGroup">
             <v-chip
               v-for="(item, index) in personalInfo.techStacks"
+              :key="index"
               class="Chip"
               :class="getClass(index)"
-              :key="index"
               label
             >
               {{ item }}

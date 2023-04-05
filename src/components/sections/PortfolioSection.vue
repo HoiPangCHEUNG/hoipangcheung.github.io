@@ -6,7 +6,7 @@
           v-for="(project, index) in projects"
           v-bind="project"
           :key="index"
-          :shdReverse="shdReverse(index)"
+          :shd-reverse="shdReverse(index)"
         />
       </div>
     </div>

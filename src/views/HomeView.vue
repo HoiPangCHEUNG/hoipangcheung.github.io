@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- header -->
-    <HeaderBar :isSmallScreen="isSmallScreen" :shdShowHeader="shdShowHeader"></HeaderBar>
+    <HeaderBar :is-small-screen="isSmallScreen" :shd-show-header="shdShowHeader"></HeaderBar>
 
     <!-- start of section -->
     <LandingSection class="LandingSection" />
@@ -9,12 +9,12 @@
       id="ExperienceSectionBuffer"
       :title="sectionBuffers.experience"
     ></BaseSectionBuffer>
-    <ExperienceSection class="ExperienceSection" :isSmallScreen="isSmallScreen" />
+    <ExperienceSection class="ExperienceSection" :is-small-screen="isSmallScreen" />
     <BaseSectionBuffer
       id="PortfolioSectionBuffer"
       :title="sectionBuffers.portfolio"
     ></BaseSectionBuffer>
-    <PortfolioSection class="PortfolioSection" :isMediumScreen="isMediumScreen" />
+    <PortfolioSection class="PortfolioSection" :is-medium-screen="isMediumScreen" />
     <!-- end of sections -->
 
     <!-- snackbar for notification -->

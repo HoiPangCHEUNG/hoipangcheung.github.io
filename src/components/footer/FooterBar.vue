@@ -35,10 +35,10 @@
         <v-card class="QrCodeCard">
           <v-img :src="qrCode" width="400px" />
           <BaseButton
+            class="CloseQrCodeDialogButton"
             color="transparent"
             icon="mdi-close-circle"
             variant="flat"
-            class="CloseQrCodeDialogButton"
             @click="toggleDialogStatus()"
           />
         </v-card>

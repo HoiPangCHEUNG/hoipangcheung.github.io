@@ -30,7 +30,8 @@ module.exports = {
           'OTHER_ATTR',
           'EVENTS',
           'CONTENT'
-        ]
+        ],
+        alphabetical: true
       }
     ]
   }

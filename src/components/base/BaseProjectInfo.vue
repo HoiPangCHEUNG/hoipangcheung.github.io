@@ -1,7 +1,7 @@
 <template>
   <div class="BaseProjectInfo" :class="{ BaseProjectInfoReversed: props.shdReverse }">
     <v-card class="elevation-10 Card rounded-lg">
-      <v-img :src="props.mediaPath" aspect-ratio="1.78"></v-img>
+      <v-img aspect-ratio="1.78" :src="props.mediaPath"></v-img>
     </v-card>
     <div class="BaseProjectInfoDetails">
       <h2 v-text="props.title" />
